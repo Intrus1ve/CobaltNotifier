@@ -4,8 +4,8 @@ import requests
 import sys
 
 def telegram_bot_msgSender(msg):
-    teleBot_token = "5850397054:AAHdM-f6X9ClO2KCSUxtCWErzvCE9pcx1ao"
-    teleBot_chatID = "1074075245"
+    teleBot_token = ""
+    teleBot_chatID = ""
     send_msg = (
         "https://api.telegram.org/bot"
         + teleBot_token
